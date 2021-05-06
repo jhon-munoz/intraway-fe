@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: azure;
+}
+
+.space {
+  height: 36px;
+}
+
+.title {
+  position: center;
+  height: 200px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.subtitle {
+  position: center;
+  height: 70px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.space_h{
+  margin-right: 10px;
+}

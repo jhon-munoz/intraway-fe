@@ -1,0 +1,20 @@
+<div class="title">
+  WELCOME TO INTRAWAY PROJECT
+  <div class="space"></div>
+</div>
+<div class="subtitle">FizzBuzz exercise</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header"><h3>Get FizzBuzz</h3></div>
+    <form [formGroup]="formGroup">
+      <div class="form-group">
+        <label for="">Min:</label>
+        <input type="number" class="form-control" formControlName=min>
+        <label for="">Max:</label>
+        <input type="number" class="form-control" formControlName=max>
+      </div>
+      <button (click)="get()" class="btn btn-info" [disabled]="!formGroup.valid">Get FizzBuzz</button>
+    </form>
+  </div>
+</div>
