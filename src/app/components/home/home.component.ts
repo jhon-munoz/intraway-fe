@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ServiceService} from '../../service/service.service';
+import {FizzBuzz} from '../../dtos/FizzBuzz';
+import {ErrorDto} from '../../dtos/ErrorDto';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +15,14 @@ export class HomeComponent implements OnInit {
   public formGroup: FormGroup;
   public min: Number;
   public max: Number;
+  public fizzBuzz: FizzBuzz = new FizzBuzz();
+  public errorDto: ErrorDto = new ErrorDto();
+  public flagError = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private service: ServiceService,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -31,10 +36,14 @@ export class HomeComponent implements OnInit {
   get() {
     this.min = this.formGroup.controls.min.value;
     this.max = this.formGroup.controls.max.value;
-    console.log(this.min, this.max);
+
     this.service.getFizzBuzz(this.min, this.max)
       .subscribe(data => {
-        alert('Saved successfully');
-      });
+        this.flagError = false;
+        this.fizzBuzz = data;
+      }, (error => {
+        this.flagError = true;
+        this.errorDto = error.error;
+      }));
   }
 }

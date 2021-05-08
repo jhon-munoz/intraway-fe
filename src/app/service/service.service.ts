@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {FizzBuzz} from '../dtos/FizzBuzz';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,6 @@ export class ServiceService {
   url = 'http://localhost:8090/intraway/api/fizzbuzz';
 
   getFizzBuzz(min: Number, max: Number) {
-    return this.http.get<String>(this.url + '/' + min + '/' + max);
+    return this.http.get<FizzBuzz>(this.url + '/' + min + '/' + max);
   }
 }

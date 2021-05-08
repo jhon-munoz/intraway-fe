@@ -1,13 +1,15 @@
-<div class="title">
-  WELCOME TO INTRAWAY PROJECT
-  <div class="space"></div>
+<div class="col-md-12">
+  <div class="title">
+    WELCOME TO INTRAWAY PROJECT
+    <div class="space"></div>
+  </div>
+  <div class="subtitle">FizzBuzz exercise</div>
 </div>
-<div class="subtitle">FizzBuzz exercise</div>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header"><h3>Get FizzBuzz</h3></div>
-    <form [formGroup]="formGroup">
+<form [formGroup]="formGroup">
+  <div class="container">
+
+    <div class="col-lg-6 col-md-6">
       <div class="form-group">
         <label for="">Min:</label>
         <input type="number" class="form-control" formControlName=min>
@@ -15,6 +17,33 @@
         <input type="number" class="form-control" formControlName=max>
       </div>
       <button (click)="get()" class="btn btn-info" [disabled]="!formGroup.valid">Get FizzBuzz</button>
-    </form>
+    </div>
+
+    <div *ngIf="!flagError">
+      <div class="col-lg-6 col-md-6">
+        <label for="">Results</label>
+        <mat-card class="card">
+          <mat-card-content><label>Timestamp:</label> {{fizzBuzz.timestamp}}</mat-card-content>
+          <mat-card-content><label>Code:</label> {{fizzBuzz.code}}</mat-card-content>
+          <mat-card-content><label>Description:</label> {{fizzBuzz.description}}</mat-card-content>
+          <mat-card-content><label>List:</label> {{fizzBuzz.list}}</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div *ngIf="flagError">
+      <div class="col-lg-6 col-md-6">
+        <label for="">Results</label>
+        <mat-card class="card">
+          <mat-card-content><label>Timestamp:</label> {{errorDto.timestamp}}</mat-card-content>
+          <mat-card-content><label>Status:</label> {{errorDto.status}}</mat-card-content>
+          <mat-card-content><label>Error:</label> {{errorDto.error}}</mat-card-content>
+          <mat-card-content><label>Exception:</label> {{errorDto.exception}}</mat-card-content>
+          <mat-card-content><label>Message:</label> {{errorDto.message}}</mat-card-content>
+          <mat-card-content><label>Path:</label> {{errorDto.path}}</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
   </div>
-</div>
+</form>

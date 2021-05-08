@@ -1,8 +1,11 @@
-.list{
-  cursor: pointer;
-  font-weight: bold;
-}
-
 .space_button{
   height: 20px;
+}
+
+.form-control{
+  width: 300px;
+}
+
+.card{
+  background-color: white;
 }
